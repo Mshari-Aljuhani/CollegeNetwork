@@ -40,6 +40,21 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="phoneNumber" class="col-md-4 col-form-label text-md-end">{{ __('Phone number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phoneNumber" type="phoneNumber" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber">
+
+                                @error('phoneNumber')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -58,6 +73,13 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="profilePic" class="col-md-4 col-form-label text-md-end">{{ __('profile Pic') }}</label>
+                            <div class="col-md-6">
+                                <input id="profilePic" type="file" class="form-control" name="profilePic">
                             </div>
                         </div>
 

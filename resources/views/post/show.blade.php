@@ -2,7 +2,10 @@
     @foreach($posts as $post)
         <div class="card mb-2">
             <div class="card-body">
-                <h5 class="card-title">{{$post->user->name}}</h5>
+                <div style="display: inline-flex; justify-content: center; justify-items: center; justify-self: center">
+                <img class="image rounded" src="{{asset('uploads/profiles_pics/'.Auth::user()->profilePic)}}" alt="" height="auto" width="100px">
+                <h5 class="card-title m-auto mx-2">{{$post->user->name}}</h5>
+                </div>
                 <h4 class="">{{$post->message}}</h4>
                 <p class="card-text"><small class="text-muted">- {{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</small></p>
             </div>

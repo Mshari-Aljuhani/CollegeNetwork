@@ -13,3 +13,4 @@ yarn-error.log
 /.idea
 /.vscode
 /public/uploads/post_pics/
+/public/uploads/profiles_pics/

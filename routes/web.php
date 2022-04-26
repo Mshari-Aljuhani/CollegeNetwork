@@ -19,5 +19,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('welcome');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home',[App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
+
 
 Route::resource('posts', PostController::class);

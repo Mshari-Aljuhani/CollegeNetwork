@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function upload(Request $request)
+    {
+        if($request->hasFile('profilePic')){
+            $filename = $request->profilePic->getClientOriginalName();
+            $request->profilePic->move('uploads/profiles_pics', $filename);
+            Auth()->user()->update(['profilePic'=>$filename]);
+        }
+        return redirect()->back();
+    }
+
 }
