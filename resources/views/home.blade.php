@@ -19,7 +19,7 @@
                     <div class="card-body" style="text-align: center">
                     @isset(Auth::user()->profilePic)
                             <h5>Welcome <b>{{Auth::user()->name}}</b></h5>
-                            <img class="image rounded" src="{{asset('uploads/profiles_pics/'.Auth::user()->profilePic)}}" alt="" height="auto" width="200px">
+                            <img class="image rounded" src="{{asset('/storage/profilePic/'.Auth::user()->profilePic)}}" alt="" height="auto" width="200px">
                         @else
                         <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
                             @csrf

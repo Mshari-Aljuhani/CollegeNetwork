@@ -54,7 +54,7 @@
                             @endif
                         @else
                             <div style="display: inline-flex">
-                                <img class="image rounded" src="{{asset('uploads/profiles_pics/'.Auth::user()->profilePic)}}" alt="" height="57px" width="auto">
+                                <img class="image rounded" src="{{asset('/storage/profilePic/'.Auth::user()->profilePic)}}" alt="" height="57px" width="auto">
                             <li class="nav-item dropdown m-auto">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

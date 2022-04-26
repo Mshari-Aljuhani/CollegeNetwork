@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         if($request->hasFile('profilePic')){
             $filename = $request->profilePic->getClientOriginalName();
-            $request->profilePic->move('uploads/profiles_pics', $filename);
+            $request->profilePic->storeAs('profilePic',$filename,'public');
             Auth()->user()->update(['profilePic'=>$filename]);
         }
         return redirect()->back();
