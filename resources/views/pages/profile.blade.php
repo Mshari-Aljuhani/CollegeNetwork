@@ -6,16 +6,17 @@
                     <h3><b>Profile</b></h3>
                 </div>
             <div class="row">
+                <!-- Avatar -->
                 <div class="col-6">
                     <img class="image rounded m-2 responsive" src="{{asset('/storage/profilePic/'.Auth::user()->profilePic)}}" alt="" height="auto" width="100%">
-                    <form class="mx-5" action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data" style="text-align: center">
                         @csrf
-                        <p>Update your avatar</p>
-                        <input class="form-control" type="file" name="profilePic" >
+                        <b>Update your avatar</b>
+                        <input class="form-control mx-auto" type="file" name="profilePic" style="width: 70%;">
                         <input class="mt-2 mb-2" type="submit" value="Upload">
                     </form>
                 </div>
-
+                <!-- User information -->
                 <div class="card-body col-6 mt-5">
                     <blockquote class="blockquote align-middle" style="text-align: left; vertical-align: middle">
                         <p>Username: {{Auth::user()->name}}</p>
@@ -25,7 +26,11 @@
                                 {{\Carbon\Carbon::parse(Auth::user()->created_at)->format('Y-m-d')}}
                             </cite></footer>
                     </blockquote>
+                    <div style="text-align: center; margin-top: 25px ">
+                        @include('component.editUserForm')
+                    </div>
                 </div>
+
             </div>
     </div>
 

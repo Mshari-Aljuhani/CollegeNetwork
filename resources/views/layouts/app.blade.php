@@ -81,6 +81,25 @@
 
         <main class="py-4">
             <div class="container">
+                <!-- Errors Alert -->
+            @if($errors->any())
+            <div class="alert alert-warning">
+              <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{$error}}</li>
+                @endforeach
+               </ul>
+             </div>
+             @endif
+                @if (session('error'))
+                    <h6 class="alert alert-danger">{{session('error')}}</h6>
+                @endif
+          <!--END  Errors Alert -->
+          <!-- Errors Alert -->
+            @if (session('status'))
+             <h6 class="alert alert-success">{{session('status')}}</h6>
+            @endif
+          <!--END  Status Alert -->
                 @yield('content')
             </div>
         </main>
