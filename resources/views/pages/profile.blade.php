@@ -16,6 +16,7 @@
                         <footer class="blockquote-footer mt-0">Registered since <cite title="Source Title">
                                 {{\Carbon\Carbon::parse(Auth::user()->created_at)->format('Y-m-d')}}
                             </cite></footer>
+                            
                     </blockquote>
                 </div>
             </div>
