@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('welcome');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home',[App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
+Route::get('/profile',[App\Http\Controllers\HomeController::class, 'profilePage'])->name('profilePage');
+
 
 
 Route::resource('posts', PostController::class);

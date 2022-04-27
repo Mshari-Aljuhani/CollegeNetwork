@@ -3,11 +3,11 @@
         <div class="card mb-2">
             <div class="card-body">
                 <div style="display: inline-flex; justify-content: center; justify-items: center; justify-self: center">
-                <img class="image rounded" src="{{asset('/storage/profilePic/'.Auth::user()->profilePic)}}" alt="" height="auto" width="100px">
+                <img class="image rounded" src="{{asset('/storage/profilePic/'.$post->user->profilePic)}}" alt="" height="auto" width="100px">
                 <h5 class="card-title m-auto mx-2">{{$post->user->name}}</h5>
                 </div>
                 <h4 class="">{{$post->message}}</h4>
-                <p class="card-text"><small class="text-muted">- {{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</small></p>
+                <p class="card-text"><small class="text-muted">posted: {{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</small></p>
             </div>
             @if($post->images->count() > 0)
                 <div id="posts-carousel_{{$post->id}}" class="carousel slide" data-bs-ride="carousel">
