@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +39,8 @@ class HomeController extends Controller
 
     public function profilePage(){
         $user = Auth::user();
-        return view('pages/profile', compact('user'));
+        $posts = $user->posts()->latest()->get();
+        return view('pages/profile', compact('user', 'posts'));
     }
 
 }
