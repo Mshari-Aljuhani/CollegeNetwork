@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/home',[UserController::class, 'upload'])->name('upload');
 Route::put('/edit-user', [UserController::class, 'Update'])->name('user.update');
 Route::patch('/edit-password-user', [UserController::class, 'passwordUpdate'])->name('user.password.update');
+Route::patch('/updateImage', [PostController::class, 'updateImage'])->name('updateImage');
+
 
 //Pages routes
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
