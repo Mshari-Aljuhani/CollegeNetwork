@@ -2,3 +2,10 @@
     padding-left: 10% ;
     padding-right: 10% ;
 }
+.editPost-button{
+    display:inline-flex;
+    margin: 25px;
+    position:absolute;
+    top:0;
+    right:0;
+}
