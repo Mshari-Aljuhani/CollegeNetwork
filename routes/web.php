@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -29,6 +30,8 @@ Route::patch('/updateImage', [PostController::class, 'updateImage'])->name('upda
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile',[HomeController::class, 'profilePage'])->name('profilePage');
+Route::get('/index', [Controller::class, 'index'])->name('index');
+
 
 //Resource routes
 Auth::routes();
