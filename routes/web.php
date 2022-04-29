@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -36,3 +37,4 @@ Route::get('/index', [Controller::class, 'index'])->name('index');
 //Resource routes
 Auth::routes();
 Route::resource('posts', PostController::class);
+Route::resource('comment', CommentController::class);

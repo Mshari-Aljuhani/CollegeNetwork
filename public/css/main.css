@@ -9,3 +9,9 @@
     top:0;
     right:0;
 }
+.comment-form{
+    display: inline-flex;
+    text-align: center;
+    width: 100%;
+    padding: 50px 10% 10px 10%;
+}

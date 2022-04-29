@@ -1,6 +1,7 @@
 <div class="card-container m-5">
     @foreach($posts as $post)
-        <div class="card mb-2">
+        <div class="mb-5">
+        <div class="card">
             <div class="card-body">
                 <div style="display: inline-flex;">
                 <img class="image rounded" src="{{asset('/storage/profilePic/'.$post->user->profilePic)}}" alt="" height="auto" width="100px">
@@ -43,6 +44,15 @@
                     </button>
                 </div>
             @endif
+        </div>
+            <div class="card mb-2 pe-5 mx-auto" style="width: 90%">
+                @if($post->comments->count() > 0)
+                    @foreach($post->comments as $comment)
+                        @include('comment.show')
+                    @endforeach
+                @endif
+                @include('comment.commentForm')
+            </div>
         </div>
     @endforeach
 </div>
