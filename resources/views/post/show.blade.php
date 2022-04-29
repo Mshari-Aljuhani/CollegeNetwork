@@ -5,9 +5,11 @@
                 <div style="display: inline-flex;">
                 <img class="image rounded" src="{{asset('/storage/profilePic/'.$post->user->profilePic)}}" alt="" height="auto" width="100px">
                 <h5 class="card-title m-auto mx-2">{{$post->user->name}}</h5>
-                    @if(Auth::id() == $post->user->id)
-                        @include('post.editPost')
-                    @endif
+                    @auth
+                        @if(Auth::id() == $post->user->id || Auth::user()->isAdmin)
+                            @include('post.editPost')
+                        @endif
+                    @endauth
                 </div>
                 <h4 class="">{{$post->message}}</h4>
                 <p class="card-text"><small class="text-muted">posted: {{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</small></p>

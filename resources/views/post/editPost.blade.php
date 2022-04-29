@@ -12,10 +12,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('posts.update', $post)}}" method="post">
+                    <form action="{{route('posts.update', $post)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <textarea class="form-control" name="message">{{$post->message}}</textarea>
+                        <label for="imageInput" class="mt-1">Add extra images</label>
+                        <input id="imageInput" type="file" name="images[]" class="form-control mt-1" multiple>
                         <button class="btn btn-outline-primary mt-1 mb-2">Update</button>
                     </form>
                     @if($post->images->count() > 0)
@@ -23,7 +25,7 @@
                         <div class="mb-3" style="width: 100%; margin: 0 auto">
                         @foreach($post->images as $image)
                             <div class="mt-3" style="text-align: center">
-                                <img src="{{asset('uploads/post_pics/'.$image->imageName)}}" class="card-img-bottom" alt="Image {{$post->user->name}}">
+                                <img src="{{asset('storage/postPics/'.$image->imageName)}}" class="card-img-bottom" alt="Image {{$post->user->name}}">
                                 <div style="display: inline-flex">
                                 <!-- Update image button -->
                                 <form action="{{route('updateImage', $post)}}" method="POST" enctype="multipart/form-data">

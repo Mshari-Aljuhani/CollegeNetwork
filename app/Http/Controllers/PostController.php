@@ -11,10 +11,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth');
     }
     //For single image
     public function upload_image($post, $image){
@@ -98,16 +97,17 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        if (Auth::id() != $post->user->id) {
+        if (Auth::id() != $post->user->id && Auth::user()->isAdmin = false) {
             return abort(401);
         }
-        $post->update(['message' => $request->message]);
+        $this->uploadImgs($request, $post);
+        $post->update();
         return redirect()->back()->with('status', 'Post updated successfully');
     }
 
     public function updateImage(Request $request)
     {
-        if (Auth::id() != $request->user_id) {
+        if (Auth::id() != $request->user_id && Auth::user()->isAdmin = false ) {
             return abort(401);
         }
 
@@ -137,7 +137,7 @@ class PostController extends Controller
      */
     public function destroy(Request $request, $post)
     {
-        if (Auth::id() != $request->user_id) {
+        if (Auth::id() != $request->user_id && Auth::user()->isAdmin = false) {
             return abort(401);
         }
         $post = Post::findOrFail($post);
