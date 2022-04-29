@@ -19,7 +19,7 @@ class PostController extends Controller
     //For single image
     public function upload_image($post, $image){
         $imageName = $post->user->name . '-image-' . time() . rand(1, 100) . '.' . $image->extension();
-        $image->move('uploads/post_pics', $imageName);
+        $image->storeAs('postPics',$imageName,'public');
         Image::create([
             'post_id' => $post->id,
             'imageName' => $imageName
@@ -120,7 +120,7 @@ class PostController extends Controller
 
         if ($request->has('updateImage')) {
         $imageName = '-image-' . time() . '.' . rand(1, 100) .  $newImage->extension();
-        $newImage->move('uploads/post_pics', $imageName);
+        $newImage->storeAs('postPics',$imageName,'public');
         $image->update(['imageName' => $imageName]);
         return redirect()->back()->with('status', 'Photo updated successfully');
         } else {
