@@ -12,4 +12,8 @@ class PageController extends Controller
      $posts = Post::all()->sortDesc();
      return view('welcome', compact('posts'));
     }
+    public function index(){
+
+        return view(view: 'pages/index');
+    }
 }
