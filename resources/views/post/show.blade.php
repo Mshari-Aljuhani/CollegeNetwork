@@ -23,7 +23,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{asset('uploads/post_pics/'.$post->first_image())}}" class="card-img-bottom" alt="Image {{$post->user->name}}">
+                            <img src="{{asset('storage/postPics/'.$post->first_image())}}" class="card-img-bottom" alt="Image {{$post->user->name}}">
                         </div>
                         @foreach($post->images->skip(1) as $image)
                             <div class="carousel-item">
