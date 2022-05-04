@@ -33,8 +33,10 @@
             <h2>Start Posting</h2>
             <p class="about-text-p">state what in your mind!</p>
             <a href="{{route('login')}}">
-                <button  class="main-btn" type="submit">Start</button>
+                <button  class="main-btn MainBtn" type="submit">Start</button>
             </a>
         </div>
     </section>
     </body>
+    @include('component.chat-box')
+
