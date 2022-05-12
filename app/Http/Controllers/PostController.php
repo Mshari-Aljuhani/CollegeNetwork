@@ -101,7 +101,7 @@ class PostController extends Controller
             return abort(401);
         }
         $this->uploadImgs($request, $post);
-        $post->update();
+        $post->update($request->all());
         return redirect()->back()->with('status', 'Post updated successfully');
     }
 
